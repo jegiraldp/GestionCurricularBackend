@@ -31,7 +31,10 @@ app.all(function (req, res, next) {
   next();
 });
 
-app.use(cors());
+var corsOptions = {
+  origin: ['https://gestion-curricular-frontend-tau.vercel.app', 'http://localhost:3002']
+}
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 router.use('/', userRoute);
